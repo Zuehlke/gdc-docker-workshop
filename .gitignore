@@ -1,0 +1,4 @@
+# JetBrains product env files
+/.idea/
+# VSCode product env files
+/.vscode/
