@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  releases-service:
+    container_name: releases-service
+    image: releases-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - releases-network
+    depends_on:
+      - releases-database
+
+  releases-database:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - releases-mysql:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: releases
+      MYSQL_ROOT_PASSWORD: my-secret-pw
+    networks:
+      - releases-network
+
+volumes:
+  releases-mysql:
+
+networks:
+  releases-network:
+    driver: bridge
