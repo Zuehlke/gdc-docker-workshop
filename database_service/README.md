@@ -60,7 +60,7 @@ Represents a release date in the future. It will be used as a deadline!
 Response body:
 
 ```json
-  {
+{
   "id": 5,
   "releaseTitle": "Upgraded version",
   "releaseVersion": "v0.0.1",
